@@ -1,7 +1,7 @@
 import os
 import sqlite3
 
-import config
+from . import config
 
 
 class SqLite3:
