@@ -112,7 +112,7 @@ class SqLite3:
         return result.fetchone()
     
 
-    def fetch_many(self, query:str) -> list:
+    def fetch_many(self, query:str, count:int=1) -> list:
         """
         Execute the SQL query provided as the argument.
         And return the results.
@@ -120,7 +120,7 @@ class SqLite3:
         Developer: Pall Pandiyan.S
         """
         result = self.cur.execute(query)
-        return result.fetchmany()
+        return result.fetchmany(count)
     
 
     def delete_table(self, table_name) -> None:
