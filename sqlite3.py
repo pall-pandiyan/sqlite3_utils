@@ -87,7 +87,9 @@ class SqLite3:
 
         Developer: Pall Pandiyan.S
         """
-        self.cur.execute(query, param)
+        if param:
+            return self.cur.execute(query, param)
+        return self.cur.execute(query)
     
 
     def fetch_all(self, query:str, param=None) -> list:
@@ -97,7 +99,7 @@ class SqLite3:
 
         Developer: Pall Pandiyan.S
         """
-        result = self.cur.execute(query, param)
+        result = self.execute_statement(query, param)
         return result.fetchall()
     
 
@@ -108,7 +110,7 @@ class SqLite3:
 
         Developer: Pall Pandiyan.S
         """
-        result = self.cur.execute(query, param)
+        result = self.execute_statement(query, param)
         return result.fetchone()
     
 
@@ -119,7 +121,7 @@ class SqLite3:
 
         Developer: Pall Pandiyan.S
         """
-        result = self.cur.execute(query, param)
+        result = self.execute_statement(query, param)
         return result.fetchmany(count)
     
 
