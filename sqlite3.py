@@ -80,46 +80,46 @@ class SqLite3:
         self.open_connection()
     
 
-    def execute_statement(self, query:str) -> None:
+    def execute_statement(self, query:str, param=None) -> None:
         """
         Execute the SQL statement provided as the argument.
         Since it is a statement nothing returned.
 
         Developer: Pall Pandiyan.S
         """
-        self.cur.execute(query)
+        self.cur.execute(query, param)
     
 
-    def fetch_all(self, query:str) -> list:
+    def fetch_all(self, query:str, param=None) -> list:
         """
         Execute the SQL query provided as the argument.
         And return all the results.
 
         Developer: Pall Pandiyan.S
         """
-        result = self.cur.execute(query)
+        result = self.cur.execute(query, param)
         return result.fetchall()
     
 
-    def fetch_one(self, query:str) -> list:
+    def fetch_one(self, query:str, param=None) -> list:
         """
         Execute the SQL query provided as the argument.
         And return the first result.
 
         Developer: Pall Pandiyan.S
         """
-        result = self.cur.execute(query)
+        result = self.cur.execute(query, param)
         return result.fetchone()
     
 
-    def fetch_many(self, query:str, count:int=1) -> list:
+    def fetch_many(self, query:str, param=None, count:int=1) -> list:
         """
         Execute the SQL query provided as the argument.
         And return the results.
 
         Developer: Pall Pandiyan.S
         """
-        result = self.cur.execute(query)
+        result = self.cur.execute(query, param)
         return result.fetchmany(count)
     
 
